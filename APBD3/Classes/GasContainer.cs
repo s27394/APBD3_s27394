@@ -32,6 +32,15 @@ public class GasContainer: Container
     {
         if (Product != null)
         {
+            if (Product.ProductCategory != ProductCategory.Liquid)
+            {
+                NotifyDangerousOperation("attempt to load product with illegal state of matter");
+                return;
+            }
+        }
+
+        if (Product != null)
+        {
             if (Product.ProductCategory != ProductCategory.Gas)
             {
                 NotifyDangerousOperation("attempt to load product with illegal state of matter");
